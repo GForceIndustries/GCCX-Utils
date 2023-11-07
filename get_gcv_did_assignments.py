@@ -76,7 +76,6 @@ gcv_dids_page = 1
 while get_gcv_dids_fetch_complete == False:
     get_gcv_dids_url = get_gcv_dids_url_host + get_gcv_dids_url_path
     get_gcv_dids_response = requests.get(get_gcv_dids_url, headers = header)
-    print(get_gcv_dids_response)
     gcv_dids_json = get_gcv_dids_response.json()
     print("Processing GCV DIDs page " + str(gcv_dids_page))
     
