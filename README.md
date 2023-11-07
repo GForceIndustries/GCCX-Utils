@@ -1,8 +1,11 @@
 # GCCX-Utils
 Miscellaneous utilities for Genesys Cloud CX.
+## Get GCV DID Assignments
+
+Retrieves the list of phone numbers purchased via Genesys Cloud Voice and for each number assigned to an object, returns the number along with the object it is assigned to. The script will prompt you for your client ID, client secret and region. Region can be specified using the full region string (for example, eu-west-2), or abbreviated (for example, EUW2). The script assumes the Client Credentials grant type.
 ## Test OAuth Client Authentication
 
-A simple way to sanity check if OAuth client authentication is working. The script will prompt you for your client ID, client secret and region. Region can be specified using the full region string (for example, eu-west-2), or abbreviated (for example, EUW2). The script assumes the Client Credentials grant type can still validate that the credentials are correct for other grant types.
+A simple way to sanity check if OAuth client authentication is working. The script will prompt you for your client ID, client secret and region. Region can be specified using the full region string (for example, eu-west-2), or abbreviated (for example, EUW2). The script assumes the Client Credentials grant type but can still validate that the credentials are correct for other grant types.
 
 Successful authentication and correct grant type:
 
