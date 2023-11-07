@@ -72,10 +72,13 @@ get_gcv_dids_url_host = "https://apps." + api_region + "/platform"
 get_gcv_dids_url_path = "/api/v2/carrierservices/numberpurchase/20210520/orders?excludedStatuses=DISCONNECTED,CANCELLED&direction=NEXT&pageSize=" + str(get_gcv_dids_page_size)
 
 get_gcv_dids_fetch_complete = False
+gcv_dids_page = 1
 while get_gcv_dids_fetch_complete == False:
     get_gcv_dids_url = get_gcv_dids_url_host + get_gcv_dids_url_path
     get_gcv_dids_response = requests.get(get_gcv_dids_url, headers = header)
+    print(get_gcv_dids_response)
     gcv_dids_json = get_gcv_dids_response.json()
+    print("Processing GCV DIDs page " + str(gcv_dids_page))
     
     try:
         for gcv_did in gcv_dids_json['entities']:
@@ -86,6 +89,7 @@ while get_gcv_dids_fetch_complete == False:
             get_gcv_dids_fetch_complete = True
     except KeyError:
         pass
+    gcv_dids_page += 1
 
 # ////////// Get DIDs \\\\\\\\\\
 dids_list = []
