@@ -91,8 +91,9 @@ while get_gcv_dids_fetch_complete == False:
     gcv_dids_page += 1
 
 # ////////// Get DIDs \\\\\\\\\\
-dids_list = []
-get_dids_page_size = 25
+assigned_gcv_dids_list = []
+unassigned_gcv_dids_list = []
+get_dids_page_size = 100
 get_dids_url_host = "https://apps." + api_region + "/platform"
 get_dids_url_path = "/api/v2/telephony/providers/edges/didpools/dids?pageNumber=1&type=ASSIGNED_AND_UNASSIGNED&pageSize=" + str(get_dids_page_size)
 
@@ -118,7 +119,9 @@ while get_dids_fetch_complete == False:
                         did_owner_type = "User"
                     else:
                         did_owner_type = "Object type unknown"
-                    dids_list.append(did_number + " assigned to " + did_owner_name + " (" + did_owner_type + ")")
+                    assigned_gcv_dids_list.append(did_number + " assigned to " + did_owner_name + " (" + did_owner_type + ")")
+                else: # if it's not assigned
+                    unassigned_gcv_dids_list.append(did['number'])
         try:
             get_dids_url_path = dids_json['nextUri']
         except KeyError:
@@ -130,6 +133,10 @@ while get_dids_fetch_complete == False:
 
 print("Current total GCV DIDs: " + str(len(gcv_dids_list)))
 
-print("Current assigned GCV DIDs: " + str(len(dids_list)))
-for did in dids_list:
+print("Current unassigned GCV DIDs: " + str(len(unassigned_gcv_dids_list)))
+for did in unassigned_gcv_dids_list:
+    print(did)
+
+print("Current assigned GCV DIDs: " + str(len(assigned_gcv_dids_list)))
+for did in assigned_gcv_dids_list:
     print(did)
