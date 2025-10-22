@@ -19,12 +19,7 @@ Successful authentication but incorrect grant type:
 <Response [400]>
 {'error': 'unauthorized_client', 'description': 'client is not authorized to use the client_credential grant type', 'error_description': 'client is not authorized to use the client_credential grant type'}
 
-Unsuccessful authentication due to incorrect client secret:
+Unsuccessful authentication due to incorrect client secret, incorrect client ID, or disabled OAuth client:
 
 <Response [400]>
 {'error': 'invalid_client', 'description': 'authentication failed', 'error_description': 'authentication failed'}
-
-Unsuccessful authentication due to incorrect client ID:
-
-<Response [400]>
-{'error': 'invalid_client', 'description': 'client not found', 'error_description': 'client not found'}
