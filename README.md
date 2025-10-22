@@ -1,5 +1,7 @@
 # GCCX-Utils
 Miscellaneous utilities for Genesys Cloud CX.
+
+These utilities are provided as-is with no warranties expressed or implied. These are 100% unofficial and are not endorsed or maintained by Genesys.
 ## Get GCV DID Assignments
 
 Retrieves the list of phone numbers purchased via Genesys Cloud Voice, then outputs a list of unassigned GCV DIDs and a list of assigned GCV DIDs, with the object it is assigned to. Assigned objects include users, stations and IVR call routes. The script will prompt you for your client ID, client secret and region. Region can be specified using the full region string (for example, eu-west-2), or abbreviated (for example, EUW2). The script assumes the Client Credentials grant type.
